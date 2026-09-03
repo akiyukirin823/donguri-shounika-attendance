@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>どんぐり小児科 管理画面</title>
+<style>body{font-family:system-ui,sans-serif;background:#f6f1e7;margin:0}.wrap{max-width:900px;margin:auto;padding:24px}.card{background:#fffdf8;border-radius:20px;padding:20px;margin:14px 0;box-shadow:0 5px 20px #0001}input,button{padding:12px;border-radius:10px;border:1px solid #ccc;margin:5px}button{background:#6f8b58;color:#fff;border:0}</style></head>
+<body><div class="wrap"><h1>🌰 どんぐり小児科 管理画面</h1>
+<div class="card"><input id="email" placeholder="管理者メール"><input id="pw" type="password" placeholder="パスワード"><button onclick="login()">ログイン</button><span id="msg"></span></div>
+<div id="panel" hidden><div class="card"><h2>本日の出勤状況</h2><button onclick="load()">更新</button><pre id="out"></pre></div>
+<div class="card"><h2>CSV</h2><a href="/api/admin/export.csv" target="_blank">勤怠CSVを開く</a></div></div>
+<script>
+let token='';
+async function login(){let r=await fetch('/api/admin/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email.value,password:pw.value})});let j=await r.json();if(!r.ok){msg.textContent=j.error;return}token=j.token;panel.hidden=false;load()}
+async function load(){let r=await fetch('/api/admin/staff',{headers:{Authorization:'Bearer '+token}});out.textContent=JSON.stringify(await r.json(),null,2)}
+</script></div></body></html>

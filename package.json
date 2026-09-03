@@ -1,0 +1,22 @@
+{
+  "name": "donguri-shounika-attendance",
+  "version": "2.0.0",
+  "private": true,
+  "description": "どんぐり小児科 出退勤アプリ - Railway + PostgreSQL + LINE LIFF",
+  "scripts": {
+    "start": "node server.js",
+    "setup:line": "node scripts/setup-line-liff.js",
+    "hash-password": "node scripts/hash-password.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "connect-pg-simple": "^10.0.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "express-session": "^1.18.2",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3"
+  }
+}
