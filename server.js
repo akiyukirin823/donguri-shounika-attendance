@@ -86,7 +86,7 @@ app.get("/api/admin/export.csv",adminAuth,async(req,res)=>{
 });
 app.use(express.static(path.join(__dirname,"public")));
 app.get("/admin",(req,res)=>res.sendFile(path.join(__dirname,"public","admin.html")));
-app.get("*",(req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));
+app.use((req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));
 
 const port=process.env.PORT||3000;
 app.listen(port,()=>console.log(`server listening on ${port}`));
