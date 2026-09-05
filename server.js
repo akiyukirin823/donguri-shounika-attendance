@@ -89,4 +89,4 @@ app.get("/admin",(req,res)=>res.sendFile(path.join(__dirname,"public","admin.htm
 app.use((req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));
 
 const port=process.env.PORT||3000;
-app.listen(port,()=>console.log(`server listening on ${port}`));
+app.listen(port, "0.0.0.0", () => console.log(`server listening on ${port}`));
