@@ -38,5 +38,5 @@ async function share(){
  else if(navigator.share) await navigator.share({text});
  else alert(text);
 }
-boot().catch(e=>document.querySelector('#status').textContent='エラー: '+e.message);
+boot().catch(e=>document.querySelector('#status').textContent='エラー: '+e.code+' / '+e.message);
 </script></body></html>
