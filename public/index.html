@@ -19,8 +19,7 @@ h1{font-size:24px}.btn{width:100%;padding:16px;margin:7px 0;border:0;border-radi
 <script>
 let token="";
 async function boot(){
- const c=await fetch('/config.js').then(r=>r.json());
- await liff.init({liffId:c.liffId});
+ await liff.init({liffId:'2011571180-KixUiIRV'})
  if(!liff.isLoggedIn()){liff.login();return}
  const idToken=liff.getIDToken();
  const r=await fetch('/api/auth/line',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({idToken})});
